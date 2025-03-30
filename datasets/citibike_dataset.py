@@ -114,7 +114,7 @@ class CitibikeDataset():
         
     def _compute_distance(self, row):
         """
-        Computes the straight-line (great-circle) distance between start and end coordinates.
+        Computes the straight-line distance between start and end coordinates.
 
         Parameters:
             row (pd.Series): A row containing 'start_station_id', 'end_station_id'
