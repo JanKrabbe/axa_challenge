@@ -95,20 +95,20 @@ class BikeCrashDataset():
         self.df['x_centered'] = self.df['x'] - citibike_dataset.x_center
         self.df['y_centered'] = self.df['y'] - citibike_dataset.y_center
 
-        min_x = citibike_dataset.stations["x_centered"].min()
-        max_x = citibike_dataset.stations["x_centered"].max()
-        min_y = citibike_dataset.stations["y_centered"].min()
-        max_y = citibike_dataset.stations["y_centered"].max()
+        min_x = citibike_dataset.stations['x_centered'].min()
+        max_x = citibike_dataset.stations['x_centered'].max()
+        min_y = citibike_dataset.stations['y_centered'].min()
+        max_y = citibike_dataset.stations['y_centered'].max()
    
-        self.df = self.df[(self.df["x_centered"] >= min_x) & 
-                          (self.df["x_centered"] <= max_x) & 
-                          (self.df["y_centered"] >= min_y) & 
-                          (self.df["y_centered"] <= max_y)
+        self.df = self.df[(self.df['x_centered'] >= min_x) & 
+                          (self.df['x_centered'] <= max_x) & 
+                          (self.df['y_centered'] >= min_y) & 
+                          (self.df['y_centered'] <= max_y)
                         ]
 
-    def spatio_temporal_rasterization(self, bins=100, time_bin_size=15):
+    def get_spatio_temporal_rasterization(self, bins=100, time_bin_size=15):
         """
-        Aggregates the crash data into a spatio-temporal grid (raster) and returns a new DataFrame that can be used to fit crash models.
+        Aggregates the crash data into a spatio-temporal grid (raster) and returns a new DataFrame that can be used to fit crash models. Data needs to be aligned with Citibike dataset.
         
         Arguments:
             bins (int): Number of spatial bins along each axis (x and y)
@@ -121,6 +121,9 @@ class BikeCrashDataset():
                 - 'time_center': Center time of the temporal bin (in minutes since midnight)
                 - 'crash_count': Number of crashes in that spatio-temporal bin
         """
+
+        if 'x_centered' not in self.df.columns:
+            raise RuntimeError('Data needs to be aligned with Citibike dataset first. Run citibike_alignment().')
 
         df_temp = self.df.copy()
         
