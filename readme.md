@@ -71,5 +71,5 @@ pip install -r requirements.txt
 Die Daten können unter folgenden Links bezogen werden, wobei von den Citibike Daten der erste 
 Ausschnitt des Dezembers 2023 verwendet wurde: 
 
-https://s3.amazonaws.com/tripdata/index.html
-https://data.cityofnewyork.us/Public-Safety/Motor-Vehicle-Collisions-Crashes/h9gi-nx95/about_data
+- https://s3.amazonaws.com/tripdata/index.html
+- https://data.cityofnewyork.us/Public-Safety/Motor-Vehicle-Collisions-Crashes/h9gi-nx95/about_data
