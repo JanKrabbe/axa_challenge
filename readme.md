@@ -33,22 +33,30 @@ Zunächst wurden die Daten geladen und betrachtet, damit auch die nötigen Vorve
 identifiziert werden konnten. Diese Betrachtung ist in `data_inspection.ipynb` dokumentiert und 
 war die Grundlage für die Entwicklung der Datensatzklassen im `datasets/` Ordner.
 
-Danach wurde die explorative Datenanalyse aus `explorative_data_analysis.ipynb` durchgeführt, die hauptsächlich für Citibike interessante Erkenntnisse liefern könnte und teilweise Ansatzpunkte 
-liefert, wenn einheitliche Versicherungspreise für alle Citibike Nutzer kalkuliert werden sollen. In `danger_analysis.ipynb` wird die Gefährlichkeit einzelner Stadtgebiete untersucht, wobei unter 
+Danach wurde die explorative Datenanalyse aus `explorative_data_analysis.ipynb` durchgeführt, die 
+hauptsächlich für Citibike interessante Erkenntnisse liefern könnte und teilweise Ansatzpunkte 
+liefert, wenn einheitliche Versicherungspreise für alle Citibike Nutzer kalkuliert werden sollen. 
+In `danger_analysis.ipynb` wird die Gefährlichkeit einzelner Stadtgebiete untersucht, wobei unter 
 anderem die NYPD Crash Daten mit den Citibike Daten verknüpft werden.
 
 ### 3. Modellerstellung
 
-Eine Möglichkeit wäre es, ein **Modell** zu erstellen, das **basierend auf der Startposition und -zeit 
-sowie dem Fahrrad- und Nutzertyp einen Gefahrenscore vorhersagt, der zur Berechnung des Versicherungspreises eingesetzt werden könnte**. Ein Ansatz zur Berechnung des Groundtruth Gefahrenscores wird in `approach_routecalculation.ipynb` beschrieben, konnte aber im Rahmen der Challenge nicht weiter verfolgt werden. 
+Eine Möglichkeit wäre es, ein **Modell** zu erstellen, das **basierend auf der Startposition und 
+-zeit sowie dem Fahrrad- und Nutzertyp einen Gefahrenscore vorhersagt, der zur Berechnung des 
+Versicherungspreises eingesetzt werden könnte**. Ein Ansatz zur Berechnung des Groundtruth 
+Gefahrenscores wird in `approach_routecalculation.ipynb` beschrieben, konnte aber im Rahmen der 
+Challenge nicht weiter verfolgt werden. 
 
-In `crash_model_fitting.ipynb` wurden mehrere einfache Scikit-learn Modelle gefittet, welche aus einem
-gegebenen Paar aus Ort und Tageszeit eine Unfallhäufigkeit vorhersagen. Dazu wurden eine einfache
-Hyperparametersuche und eine kurze Evaluierung durchgeführt. Das beste dieser Modelle wurde gespeichert, damit es in einer Beispielanwendung verwendet werden kann. 
+In `crash_model_fitting.ipynb` wurden mehrere einfache Scikit-learn Modelle gefittet, welche aus 
+einem gegebenen Paar aus Ort und Tageszeit eine Unfallhäufigkeit vorhersagen. Dazu wurden eine 
+einfache Hyperparametersuche und eine kurze Evaluierung durchgeführt. Das beste dieser Modelle wurde
+gespeichert, damit es in einer Beispielanwendung verwendet werden kann. 
 
 ### 4. Implementierung in Beispielanwendung
 
-Um die Verwendung eines gefitteten Modells zu demonstrieren, wird das Modell aus 3. in `insurance_calculation.ipynb` zur Bestimmung beispielhafter Versicherungspreise für einzelne Fahrten angewendet.
+Um die Verwendung eines gefitteten Modells zu demonstrieren, wird das Modell aus 3. in 
+`insurance_calculation.ipynb` zur Bestimmung beispielhafter Versicherungspreise für einzelne Fahrten 
+angewendet.
 
 ## Projektinstallation
 
@@ -59,3 +67,9 @@ Die Challenge wurde mit Python 3.13.2 bearbeitet.
 ```
 pip install -r requirements.txt
 ```
+
+Die Daten können unter folgenden Links bezogen werden, wobei von den Citibike Daten der erste 
+Ausschnitt des Dezembers 2023 verwendet wurde: 
+
+https://s3.amazonaws.com/tripdata/index.html
+https://data.cityofnewyork.us/Public-Safety/Motor-Vehicle-Collisions-Crashes/h9gi-nx95/about_data
