@@ -77,7 +77,8 @@ class DensityEstimator():
     def normalized_histogram2d(
         numerator: DensityEstimator, 
         denominator:DensityEstimator, 
-        bins=1000):
+        bins=1000,
+        title='Histogram Heatmap'):
         """
         Normalizes one density estimate by dividing it by another.
         
@@ -85,6 +86,7 @@ class DensityEstimator():
             numerator (ndarray): Density to be normalized
             denominator (ndarray): Density used for normalization
             bins (int): Number of bins to use along each axis for the 2D histogram
+            title (str): Title of the heatmap
         
         Returns:
             normalized_density (ndarray): The result of the division
@@ -108,7 +110,7 @@ class DensityEstimator():
         # H_norm = H_num / (H_den+1) #safe_denom
 
         extent = [denominator.x_min, denominator.x_max, denominator.y_min, denominator.y_max]
-        DensityEstimator.plot_heatmap(H_norm, xedges_den, yedges_den, extent, density=True)
+        DensityEstimator.plot_heatmap(H_norm, xedges_den, yedges_den, extent, title, density=True)
 
 
     def plot_histogram_heatmap(self, bins=1000, title='Histogram Heatmap', density=False):
@@ -123,7 +125,7 @@ class DensityEstimator():
    
         H, xedges, yedges = self.histogram2d(bins=bins, density=density)
         extent = [self.x_min, self.x_max, self.y_min, self.y_max]
-        self.plot_heatmap(H, xedges, yedges, extent, density)
+        self.plot_heatmap(H, xedges, yedges, extent, title, density)
 
         
     @staticmethod
