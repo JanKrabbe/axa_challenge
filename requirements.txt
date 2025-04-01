@@ -6,3 +6,4 @@ shapely
 pyproj
 seaborn 
 pytest
+notebook
