@@ -35,6 +35,10 @@ class BikeCrashDataset():
         """
         Extract bike crahes from data and apply preprocessing.
         """
+
+        if not 'VEHICLE TYPE CODE 1' in self.df.columns:
+            raise RuntimeError("To be preprocessed NYPD data needs to be loaded.")
+
         condition_cyclist = (
             self.df.get('NUMBER OF CYCLIST INJURED', 0) > 0
         ) | (

@@ -68,6 +68,14 @@ Die Challenge wurde mit Python 3.13.2 bearbeitet.
 pip install -r requirements.txt
 ```
 
+Mit 
+
+```
+python -m pytest
+```
+
+kann geprüft werden, ob alle Klassen wie geplant ausgeführt werden können.
+
 Die Daten können unter folgenden Links bezogen werden, wobei von den Citibike Daten der erste 
 Ausschnitt des Dezembers 2023 verwendet wurde: 
 
